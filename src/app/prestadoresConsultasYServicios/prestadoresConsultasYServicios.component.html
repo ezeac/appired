@@ -16,9 +16,9 @@
 			<div class="numeracionSelect">2</div>
 
 			<div class="borderSelect">
-				<label for="tramite">SELECCIONE LA PROVINCIA</label><br>
+				<label for="tramite">SELECCIONE SERVICIO</label><br>
 				<select *ngIf="tramite.length != 0" name="tramite" (change)="cargarDetalle($event.target.value)">
-					<option disabled selected value> -- Selecciona una Provincia -- </option>
+					<option disabled selected value> -- Selecciona el servicio deseado -- </option>
 					<option *ngFor="let item of tramite; let i = index" value="{{item[0]}}">{{item[1]}}</option>
 				</select>
 

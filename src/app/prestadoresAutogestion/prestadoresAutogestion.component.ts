@@ -8,8 +8,8 @@ declare var ScrollMagic:any;
 declare var TweenMax:any;
 
 @Component({
-	selector: "prestadores",
-	templateUrl: "./prestadores.component.html",
+	selector: "prestadoresAutogestion",
+	templateUrl: "./prestadoresAutogestion.component.html",
 	// styleUrls: ['./style.css'],
 	providers: [PeticionesService]
 })
@@ -20,13 +20,13 @@ Crear carpeta y componente donde corresponda con el formato de nombre: obrasocia
 Agregar componente a module.ts
 Agregar la obraSocial al Array "obraSocial" (en el caso de que no exista ya) con el formato ["obrasocial", "Obra Social"]
 Agregar condicional en cargarTramite, o agregar item al array si ya existe la obra social, con el formato ["obrasocialnombreDelTramite", "Nombre a mostrar"]
-En caso de que necesite campos adicionales, agregar condicional en cargarDetalle (como "encontrar prestadores") y sus variables necesarias de forma ordenada
+En caso de que necesite campos adicionales, agregar condicional en cargarDetalle (como "encontrar prestadoresAutogestion") y sus variables necesarias de forma ordenada
 Agregar en el div ".contenedorResultadoTramite" el selector del componente creado con el *ngIf="vistaResultado == 'obrasocialnombreDelTramite'"
 */
 // quedaría para agregar normas operativas, coseguro y login
 
-export class PrestadoresComponent{
-	public titulo = "Página prestadores";
+export class PrestadoresAutogestionComponent{
+	public titulo = "Página prestadoresAutogestion";
 	//VARIABLES GENERALES
 	//este array guarda primero el value y luego el label para el select de obras sociales
 	public obraSocial:Array<any> = [["ospaca", "Ospaca"]]; public seleccionObraSocial;
@@ -76,7 +76,7 @@ export class PrestadoresComponent{
 	    var scenestaggerAnimation2 = new ScrollMagic.Scene({triggerElement: $(".staggerAnimation2"), offset: 150}).setTween(staggerAnimation2).addTo(scrollMagicController);
 	}
 	redirigir(){
-		/*this._router.navigate(['/prestadores','valorPage']);*/
+		/*this._router.navigate(['/prestadoresAutogestion','valorPage']);*/
 	}
 	cargarTramite(obraSocial){
 		this.seleccionObraSocial = obraSocial;

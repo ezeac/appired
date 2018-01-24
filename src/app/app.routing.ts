@@ -5,7 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QuienesSomosComponent } from './quienesSomos/quienesSomos.component';
 import { ConsultasYServiciosComponent } from './consultasYServicios/consultasYServicios.component';
-import { PrestadoresComponent } from './prestadores/prestadores.component';
+import { PrestadoresAutogestionComponent } from './prestadoresAutogestion/prestadoresAutogestion.component';
+import { PrestadoresConsultasYServiciosComponent } from './prestadoresConsultasYServicios/prestadoresConsultasYServicios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 
 //Crear rutas
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
 	{path: 'home', component:HomeComponent},
 	{path: 'quienesSomos', component:QuienesSomosComponent},
 	{path: 'consultasYServicios', component:ConsultasYServiciosComponent},
-	{path: 'prestadores', component:PrestadoresComponent},
+	{path: 'prestadoresAutogestion', component:PrestadoresAutogestionComponent},
+	{path: 'prestadoresConsultas', component:PrestadoresConsultasYServiciosComponent},
 	{path: 'contacto', component:ContactoComponent},
 	{path: '**', component:HomeComponent},
 ];
