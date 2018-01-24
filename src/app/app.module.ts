@@ -12,6 +12,7 @@ import { ConsultasYServiciosComponent } from './consultasYServicios/consultasYSe
   import { OspacadescargarCartillaPrestadoresComponent } from './consultasYServicios/obrasSociales/ospaca/descargarCartillaPrestadores/ospacadescargarCartillaPrestadores.component';
   import { OspacacredencialProvisoriaComponent } from './consultasYServicios/obrasSociales/ospaca/credencialProvisoria/ospacacredencialProvisoria.component';
   import { OspacaencontrarPrestadoresComponent } from './consultasYServicios/obrasSociales/ospaca/encontrarPrestadores/ospacaencontrarPrestadores.component';
+import { PrestadoresComponent } from './prestadores/prestadores.component';
 import { ContactoComponent } from './contacto/contacto.component';
 
 import { AgmCoreModule } from '@agm/core';
@@ -21,6 +22,7 @@ import { AgmCoreModule } from '@agm/core';
     AppComponent,
     HomeComponent,
     QuienesSomosComponent,
+    PrestadoresComponent,
     ContactoComponent,
     ConsultasYServiciosComponent,
       OspacadescargarCartillaPrestadoresComponent,

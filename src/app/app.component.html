@@ -5,9 +5,22 @@
 		</div>
 		<div class="pull-right">
 			<div class="itemMenu"><a (click)="subirScroll()" [routerLink]="['/quienesSomos']" [routerLinkActive]="['claseLinkActivo']">QUIÉNES SOMOS</a></div>
-			<div class="itemMenu"><a (click)="subirScroll()" [routerLink]="['/consultasYServicios']" [routerLinkActive]="['claseLinkActivo']">CONSULTAS Y SERVICIOS</a></div>
+			<div class="itemMenu">
+				<span>USUARIOS</span>
+				<ul>
+					<li><a (click)="subirScroll()" [routerLink]="['/consultasYServicios']" [routerLinkActive]="['claseLinkActivo']">Consultas y Servicios</a></li>
+				</ul>
+			</div>
+			<div class="itemMenu">
+				<span>PRESTADORES</span>
+				<ul>
+					<li><a (click)="subirScroll()" [routerLink]="['/prestadores']" [routerLinkActive]="['claseLinkActivo']">Autogestión</a></li>
+					<li><a (click)="subirScroll()" [routerLink]="['/prestadores']" [routerLinkActive]="['claseLinkActivo']">Consultas y Servicios</a></li>
+				</ul>
+			</div>
 			<div class="itemMenu"><a (click)="subirScroll()" [routerLink]="['/contacto']" [routerLinkActive]="['claseLinkActivo']">CONTACTO</a></div>
 		</div>
+		<div class="itemMenu itemMenuConsultas"><a href="javascript:0">CONSULTAS<br>0351-4806005</a></div>
 	</nav>
 </header>
 <div id="separadorHeader" style="width: 100%; margin-top: 100px"></div>

@@ -1,3 +1,7 @@
+::selection { background: none; }
+::-moz-selection { background: none; }
+::-webkit-selection { background: none; }
+
 img {
   width: 100%;
 }
@@ -41,7 +45,65 @@ footer #logoAppi path {
 
 .itemMenu {
     float: left;
-    margin-right: 5.44vw;
+    margin-right: 4vw;
+    position: relative;
+    height: 100%;
+}
+
+.itemMenu ul {
+    list-style: none;
+    position: absolute;
+    padding: 0px 20px;
+    background: white;
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height .3s;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 2px 2px 0px #00000029;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 17vw;
+    top: 66px;
+}
+
+.itemMenu:hover > ul {
+    max-height: 200px;
+}
+
+.itemMenu ul li {
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.itemMenu ul li:first-child {
+}
+
+.itemMenu.itemMenuConsultas {
+    color: white;
+    width: 12vw;
+    float: right;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+    background: #0972ce;
+    text-align: center;
+}
+
+.itemMenu.itemMenuConsultas a::selection {background: white;}
+
+.itemMenu.itemMenuConsultas a {
+    color: white;
+    font-family: Montserrat-Light;
+    cursor: default;
+}
+
+.itemMenu.itemMenuConsultas a:hover {
+    color: white !important;
 }
 
 .menuHeader .pull-left {
@@ -50,24 +112,30 @@ footer #logoAppi path {
 }
 
 .menuHeader .pull-right {
-    margin-right: 2.4vw;
-    margin-top: 41.5px;
+    margin-right: 12vw;
+    line-height: 25px;
+    height: 100%;
+    padding-top: 35px;
 }
 
 header {
     height: 100px;
     position: fixed !important;
-    top: 0px;
+    top: 0;
     background: white;
     z-index: 9;
     left: 0px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.itemMenu a {
+.itemMenu a,.itemMenu > span {
     font-family: Montserrat-Regular;
-    font-size: 14px;
+    font-size: calc(.5vw + 8px);
     transition: all .3s;
+}
+
+.itemMenu > span {
+    cursor: default;
 }
 
 .titulo1 {
@@ -81,7 +149,6 @@ header {
     float: left;
     margin-left: 8vw;
     color: white;
-    margin-top: 160px;
 }
 
 #home1 .texto1 {
@@ -99,7 +166,7 @@ header {
     float: left;
     clear: right;
     border: none;
-    background: white;
+    background: #f58c0f;
 }
 
 .botonVolver {
@@ -112,9 +179,11 @@ header {
 }
 
 div#home1 {
-    height: 628px;
+    height: calc(100vh - 100px);
     transition: all 1s;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .titulo2 {
@@ -135,11 +204,10 @@ div#home1 {
 }
 
 #fotoHome3 {
-    padding-left: 4.16%;
+    padding-left: 0px;
 }
 
 #tituloHome3 {
-    margin-top: 50px;
 }
 
 .texto2 {
@@ -165,8 +233,10 @@ div#home1 {
 }
 
 #textoHome3 {
-    padding-right: 4.16%;
-    padding-bottom: 35px;
+    padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .link1 {
@@ -183,14 +253,17 @@ div#home1 {
     padding-top: 140px;
 }
 
+div#home3 > div {
+    display: flex;
+}
+
 #home4 .titulo2 {
     margin-top: 100px;
     margin-bottom: 65px;
 }
 
 #home3 .link1 {
-    position: absolute;
-    bottom: 0px;
+    margin-top: 30px;
 }
 
 #home4Cont {
@@ -302,12 +375,17 @@ div#home1 {
 
 #tituloQuienesSomos1 {
     color: #4B5055;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 div#quienesSomos1 {
     padding: 100px 4.16% 150px 4.16%;
     background: #F0F5FA;
+}
+
+div#quienesSomos1 > div {
+    display: flex;
+    align-items: center;
 }
 
 .tituloQuienesSomosSlide {
@@ -412,19 +490,27 @@ div#infoTextTitServicios {
 }
 
 .textoMensajeDefault {
-    position: absolute;
-    top: 40%;
-    margin-left: 50%;
-    transform: translate(-50%,-50%);
     font-size: 22px;
     text-align: center;
     color: rgba(75, 80, 85, 0.7);
+    margin-top: -100px;
+}
+
+.mensajeDefault {
+    display: flex;
+    align-items: center;
+    float: left;
+    width: 100%;
+    min-height: 600px;
+    justify-content: center;
 }
 
 .contenedorResultadoTramite {
-    min-height: 600px;
+    min-height: 70vh;
     position: relative;
     background: #ECEEF4;
+    float: left;
+    width: 100%;
 }
 
 #resultadoTramite {
@@ -588,7 +674,7 @@ div#consutlasYServicios {
 }
 
 .boton1 a {
-    color: #0073cd;
+    color: white;
 }
 
 .itemDescarga input[type=checkbox][value="OK"]:hover:before {
@@ -824,5 +910,17 @@ header {
 }
 
 #contContacto .col-sm-5 {
+    padding: 0px;
+}
+
+.menuHeader {
+    height: 100%;
+}
+
+header {
+    position: relative;
+}
+
+body.container-fluid {
     padding: 0px;
 }
