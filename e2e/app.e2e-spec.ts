@@ -1,10 +1,10 @@
-import { AppiredPage } from './app.po';
+import { AppiredNewPage } from './app.po';
 
-describe('appired App', function() {
-  let page: AppiredPage;
+describe('appired-new App', function() {
+  let page: AppiredNewPage;
 
   beforeEach(() => {
-    page = new AppiredPage();
+    page = new AppiredNewPage();
   });
 
   it('should display message saying app works', () => {
