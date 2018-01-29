@@ -13,8 +13,10 @@ import { ConsultasYServiciosComponent } from './consultasYServicios/consultasYSe
   import { OspacacredencialProvisoriaComponent } from './consultasYServicios/obrasSociales/ospaca/credencialProvisoria/ospacacredencialProvisoria.component';
   import { OspacaencontrarPrestadoresComponent } from './consultasYServicios/obrasSociales/ospaca/encontrarPrestadores/ospacaencontrarPrestadores.component';
 import { PrestadoresAutogestionComponent } from './prestadoresAutogestion/prestadoresAutogestion.component';
+  import { LoginPrestadoresComponent } from './prestadoresAutogestion/loginPrestadores/loginPrestadores.component';
 import { PrestadoresConsultasYServiciosComponent } from './prestadoresConsultasYServicios/prestadoresConsultasYServicios.component';
   import { NormasOperativasComponent } from './prestadoresConsultasYServicios/normasOperativas/normasOperativas.component';
+  import { CosegurosComponent } from './prestadoresConsultasYServicios/coseguros/coseguros.component';
 import { ContactoComponent } from './contacto/contacto.component';
 
 import { AgmCoreModule } from '@agm/core';
@@ -25,8 +27,10 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponent,
     QuienesSomosComponent,
     PrestadoresAutogestionComponent,
+      LoginPrestadoresComponent,
     PrestadoresConsultasYServiciosComponent,
       NormasOperativasComponent,
+      CosegurosComponent,
     ContactoComponent,
     ConsultasYServiciosComponent,
       OspacadescargarCartillaPrestadoresComponent,

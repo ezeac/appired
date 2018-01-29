@@ -32,32 +32,22 @@
 
 			<div class="borderSelect">
 				<label for="detalleTramite">{{tituloDetalleTramite}}</label><br>
-				<div *ngIf="detalleTexto['encontrarPrestadores']">
-					<select [(ngModel)]="Provincia" id="selectProvincia" name="provincia" (change)="Localidad = false; Rubro = false; actualizarSeleccionEncontrarPrestadores(i)">
+				<div *ngIf="detalleTexto['coseguros']">
+					<select [(ngModel)]="Provincia" id="selectProvincia" name="provincia" (change)="mostrarResultado()">
 						<option value="idProvincia1">Provincia1</option>
 						<option value="idProvincia2">Provincia2</option>
-					</select>
-					<select [(ngModel)]="Localidad" id="selectLocalidad" name="localidad" (change)="Rubro = false; actualizarSeleccionEncontrarPrestadores(i)">
-						<option value="idLocalidad1">Localidad1</option>
-						<option value="idLocalidad2">Localidad2</option>
-					</select>
-					<select [(ngModel)]="Rubro" id="selectRubro" name="rubro" (change)="actualizarSeleccionEncontrarPrestadores(i)">
-						<option value="idRubro1">Rubro1</option>
-						<option value="idRubro2">Rubro2</option>
 					</select>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="col-sm-8" id="resultadoTramite">
 		<div class="contenedorResultadoTramite">
-			<div class="staggerAnimation">
-				<div class="mensajeDefault" *ngIf="vistaResultado == ''"><div class="textoMensajeDefault">No se ha ingresado ningún&nbsp;campo.</div></div>
-			</div>
+			<!-- <li><a (click)="_router.navigateByUrl('prestadoresConsultas/normasOperativas', { skipLocationChange: true })">Normas Operativas</a></li> -->
+			<div class="staggerAnimation"><div class="mensajeDefault" *ngIf="vistaResultado == ''"><div class="textoMensajeDefault">No se ha ingresado ningún&nbsp;campo.</div></div></div>
 			<div class="mensajeDefault" *ngIf="vistaResultado == 'completar'"><div class="textoMensajeDefault">Complete los campos faltantes.</div></div>
-			<ospacadescargarCartillaPrestadores *ngIf="vistaResultado == 'ospacadescargarCartillaPrestadores'">Cargando...</ospacadescargarCartillaPrestadores>
-			<ospacacredencialProvisoria *ngIf="vistaResultado == 'ospacacredencialProvisoria'">Cargando...</ospacacredencialProvisoria>
-			<ospacaencontrarPrestadores [ObraSocial]='obraSocial' [Provincia]='Provincia' [Localidad]='Localidad' [Rubro]='Rubro' *ngIf="vistaResultado == 'ospacaencontrarPrestadores'">Cargando...</ospacaencontrarPrestadores>
+			<router-outlet *ngIf="vistaResultado != 'completar' && vistaResultado != ''"></router-outlet>	
 		</div>
 	</div>
 </div>

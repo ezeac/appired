@@ -6,7 +6,7 @@
 		<div class="pull-right">
 			<div class="itemMenu"><a (click)="subirScroll()" [routerLink]="['/quienesSomos']" [routerLinkActive]="['claseLinkActivo']">QUIÉNES SOMOS</a></div>
 			<div class="itemMenu">
-				<span>USUARIOS</span>
+				<span>AFILIADOS</span>
 				<ul>
 					<li><a (click)="subirScroll()" [routerLink]="['/consultasYServicios']" [routerLinkActive]="['claseLinkActivo']">Consultas y Servicios</a></li>
 				</ul>
@@ -15,7 +15,7 @@
 				<span>PRESTADORES</span>
 				<ul>
 					<li><a (click)="subirScroll()" [routerLink]="['/prestadoresAutogestion']" [routerLinkActive]="['claseLinkActivo']">Autogestión</a></li>
-					<li><a (click)="subirScroll()" [routerLink]="['/prestadoresConsultas']" [routerLinkActive]="['claseLinkActivo']">Consultas y Servicios</a></li>
+					<li><a (click)="subirScroll()" [routerLink]="['/prestadoresConsultas']" [routerLinkActive]="['claseLinkActivo']">Consultas</a></li>
 				</ul>
 			</div>
 			<div class="itemMenu"><a (click)="subirScroll()" [routerLink]="['/contacto']" [routerLinkActive]="['claseLinkActivo']">CONTACTO</a></div>
@@ -27,7 +27,7 @@
 
 <router-outlet></router-outlet>	
 
-<footer class="col-xs-12">
+<footer class="col-xs-12 no-padding">
 	<div class="col-xs-12" id="footerCont1">
 		<div class="pull-left col-sm-6"><div class="logoAppi" id="logoAppi">Cargando...</div></div>
 		<div class="pull-right col-sm-6">
@@ -36,14 +36,21 @@
 		</div>
 	</div>
 	<div class="col-xs-12" id="footerCont2">
-		<div class="pull-left col-sm-6">
+		<div class="pull-left col-sm-5">
 			<div class="textoFooter2">CASA CENTRAL APPI CÓRODBA</div>
 			<div class="textoFooter2">9 de Julio 2059</div>
 			<div class="textoFooter2">Tel. / Fax: (0351) 4870782 / (0351) 4313094</div>
 		</div>
-		<div class="pull-right col-sm-6">
-			<div class="textoFooter3">Desarrollado por <a href="www.diezweb.com.ar" style="text-decoration: none; color:white">DiezWeb</a></div>
-			<div class="textoFooter3">© Todos los derechos reservados</div>
+		<div class="pull-left col-sm-7 no-padding">
+			<div class="textoFooter2 col-xs-9">
+				Superintendencia de Servicios de Salud<br>
+				Organo de control de Obras Sociales y Entidades de Medicina Prepaga<br>
+				ATENCIÓN TELEFÓNICA: 0800 222 SALUD (72583)
+			</div>
+			<div class="textoFooter2 col-xs-3"><img style="width: 100%" src="../assets/img/sssLogo.jpg" alt=""></div>
 		</div>
+	</div>
+	<div class="col-xs-12 firmaDiezWeb">
+		<div class="textoFooter3">Desarrollado por <a href="www.diezweb.com.ar" style="text-decoration: none; color:white">DiezWeb</a>© Todos los derechos reservados</div>
 	</div>
 </footer>

@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { PeticionesService } from '../services/peticiones.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Contacto, ContactoPromotor } from './contactoModelos';
 
 declare var jquery:any;
 declare var $:any;
@@ -18,8 +19,8 @@ declare var TweenMax:any;
 export class ContactoComponent{
 	public titulo = "Página contacto";
 	public parametro;
-
-	public nombreForm; public dniForm; public emailForm; public mensajeForm;
+	public contacto:Contacto = new Contacto();
+	public contactoPromotor:ContactoPromotor = new ContactoPromotor();
 
 	public sedes = [
 		{
@@ -317,9 +318,10 @@ export class ContactoComponent{
 	}
 
 
-	onSubmit(nombreForm) {
-		if (nombreForm == "form1") {
-
+	onSubmit(form) {
+		for (let element in form.controls) {
+			console.log(element);
+			console.log(form.controls[element].value);
 		}
 	}
 

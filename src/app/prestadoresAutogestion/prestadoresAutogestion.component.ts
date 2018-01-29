@@ -10,7 +10,7 @@ declare var TweenMax:any;
 @Component({
 	selector: "prestadoresAutogestion",
 	templateUrl: "./prestadoresAutogestion.component.html",
-	// styleUrls: ['./style.css'],
+	styleUrls: ['./prestadoresAutogestion.component.css'],
 	providers: [PeticionesService]
 })
 
@@ -26,16 +26,10 @@ Agregar en el div ".contenedorResultadoTramite" el selector del componente cread
 // quedaría para agregar normas operativas, coseguro y login
 
 export class PrestadoresAutogestionComponent{
-	public titulo = "Página prestadoresAutogestion";
+	public titulo = "Autogestión Prestadores";
 	//VARIABLES GENERALES
-	//este array guarda primero el value y luego el label para el select de obras sociales
-	public obraSocial:Array<any> = [["ospaca", "Ospaca"]]; public seleccionObraSocial;
-	public tramite:Array<any> = [];	public seleccionTramite; 
-	public detalleTramite = false; public detalleTexto:Array<any> = [false]; public tituloDetalleTramite; 
-	public vistaResultado:string = "";
-
-	//variables para campos extras de "Encontrar Provedores"
-	public Provincia=false; public Localidad=false; public Rubro=false; 
+	public datos:any = [];
+	public usuario; public password; public login = false;
 
 	constructor(
 		private peticionesService:PeticionesService,
@@ -46,6 +40,7 @@ export class PrestadoresAutogestionComponent{
 	
 	//FUNCIONES GENERALES
 	ngOnInit(){
+
 		//INICIALIZAR CONTROLLER
 		var scrollMagicController = new ScrollMagic.Controller();
 
@@ -75,45 +70,22 @@ export class PrestadoresAutogestionComponent{
 	    //ASIGNANDO TRIGGERS
 	    var scenestaggerAnimation2 = new ScrollMagic.Scene({triggerElement: $(".staggerAnimation2"), offset: 150}).setTween(staggerAnimation2).addTo(scrollMagicController);
 	}
-	redirigir(){
-		/*this._router.navigate(['/prestadoresAutogestion','valorPage']);*/
-	}
-	cargarTramite(obraSocial){
-		this.seleccionObraSocial = obraSocial;
-		//array de trámites para cada obra social (se recibe el name del selector de obras sociales)
-		if (obraSocial == 'ospaca') {
-			this.tramite = [["descargarCartillaPrestadores", "Descargar cartilla de prestadores"], ["credencialProvisoria", "Credencial Provisoria"], ["encontrarPrestadores", "Encontrar Prestadores"]];
-		} else {
-			this.tramite = [];
-		}
-	}
-	cargarDetalle(tramite){
-		this.seleccionTramite = tramite;
-		//condicional para mostrar campos extras en "encontrar prestradores"
-		if (tramite == 'encontrarPrestadores') {
-			//activamos el div para campos extras
-			this.detalleTramite = true;
-			this.vistaResultado =  "completar";
-			this.tituloDetalleTramite = "INGRESE LOS DATOS DE BÚSQUEDA";
-			//reiniciamos la variable detalleTexto y seteamos en true el campo div a mostrar
-			this.detalleTexto = [false];
-			this.detalleTexto["encontrarPrestadores"] = true;
-		} else {
-			this.detalleTramite = false;
-			this.actualizarVistaTramite();
-		}
-	}
-	actualizarVistaTramite() {
-		this.vistaResultado = this.seleccionObraSocial + this.seleccionTramite;
-		$("html, body").animate({"scrollTop":"0px"},"2000");
-	}
+	
 
-	//FUNCIONES PARA "ENCONTRAR PRESTADORES"
-	actualizarSeleccionEncontrarPrestadores(){
-		if (this.Provincia && this.Localidad && this.Rubro) {
-			this.actualizarVistaTramite();
+	onSubmitLogin(form){
+		if (form.valid) {
+			var respuesta = this.peticionesService.getLoginPrestadores(this.usuario, this.password);
+			var x = respuesta.childNodes[0].childNodes[0].childNodes;
+			for (var i = 0; i < x.length; i++) {
+				//if (x[i].nodeName != "#text") {
+					this.datos.push(x[i]);
+					if (x[i].nodeValue == "ok") {
+						this.login = true;
+						this._router.navigate(["loginPrestadores"], {relativeTo: this._route, skipLocationChange: true});
+					}
+				//}
+			}
 		}
 	}
-
 
 }

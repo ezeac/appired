@@ -1,0 +1,10 @@
+div { font-family: Montserrat-Light; }
+.contLoginOuter { float: left; width: 100%; background-color: rgb(236, 238, 244); min-height: 70vh; }
+#contLogin { padding-top: 100px; padding-right: 0px; padding-bottom: 100px; padding-left: 0px; }
+.tituloServicio { font-size: 35px; font-family: Montserrat-Medium; color: rgb(0, 115, 205); margin-bottom: 55px; }
+.itemForm { float: left; margin-right: 3.25%; width: 32%; }
+.formLoginPrestadores label { font-size: 13px; font-family: Montserrat-Light; }
+.itemForm input { width: 100%; height: 40px; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.2); }
+.formLoginPrestadores re-captcha { float: left; clear: both; margin-top: 45px; }
+.inputButtonAzul { font-size: 13px; font-family: Montserrat-Regular; background-color: rgb(0, 115, 205); border-style: none; padding-top: 17px; padding-right: 48px; padding-bottom: 17px; padding-left: 48px; color: white; text-transform: uppercase; float: left; clear: both; margin-top: 80px; }
+form span { font-size: 11px; position: absolute; transform: none; width: auto; text-align: right; border-top: 1px solid rgba(255, 0, 0, 0.7); margin-left: 0px; padding: 5px 30px 0px 5px; margin-top: 5px; color: black; }

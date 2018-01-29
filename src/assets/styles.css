@@ -2,6 +2,10 @@
 ::-moz-selection { background: none; }
 ::-webkit-selection { background: none; }
 
+.no-padding, .no-padding-childs div {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 img {
   width: 100%;
 }
@@ -132,15 +136,16 @@ header {
     font-family: Montserrat-Regular;
     font-size: calc(.5vw + 8px);
     transition: all .3s;
+    color: #337ab7;
 }
 
 .itemMenu > span {
-    cursor: default;
+    cursor: pointer;
 }
 
 .titulo1 {
     font-family: Montserrat-Bold;
-    font-size: 48px;
+    font-size: calc(1vw + 30px);
     line-height: 58px;
 }
 
@@ -153,6 +158,7 @@ header {
 
 #home1 .texto1 {
     margin-top: 40px;
+    font-size: calc(.3vw + 10px);
 }
 
 .contTitulo .boton1 {
@@ -290,6 +296,15 @@ div#home3 > div {
     font-size: 13px;
 }
 
+footer > div:nth-child(2) > div:nth-child(2) .textoFooter2 {
+    text-align: right;
+}
+
+footer > div:nth-child(2) > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+}
+
 .textoFooter1 {
     font-family: Montserrat-Light;
     font-size: 15px;
@@ -328,6 +343,11 @@ div#home3 > div {
 #footerCont2 > div:last-child {
     right: 20px !important;
     left: inherit;
+}
+
+.firmaDiezWeb {
+    background: #4A4F54;
+    padding: 18px 40px;
 }
 
 #footerCont1 > div:last-child {
@@ -493,29 +513,36 @@ div#infoTextTitServicios {
     font-size: 22px;
     text-align: center;
     color: rgba(75, 80, 85, 0.7);
-    margin-top: -100px;
+}
+
+consultasyservicios .textoMensajeDefault {
+    margin-top: 15%;
 }
 
 .mensajeDefault {
-    display: flex;
-    align-items: center;
-    float: left;
     width: 100%;
-    min-height: 600px;
-    justify-content: center;
+    height: auto;
+    position: relative;
 }
 
 .contenedorResultadoTramite {
-    min-height: 70vh;
     position: relative;
-    background: #ECEEF4;
-    float: left;
     width: 100%;
+    height: 100%;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+
+prestadoresconsultasyservicios .contenedorResultadoTramite {
+    display: flex;
 }
 
 #resultadoTramite {
     flex: auto;
     padding: 0px;
+    background: #ECEEF4;
+    min-height: 70vh;
 }
 
 consultasyservicios {
@@ -837,8 +864,7 @@ div#mapaSucursales {
 }
 
 #quieroAsociarme textarea {
-    height: auto;
-    height: 30px;
+    height: 37px;
 }
 
 
@@ -896,14 +922,6 @@ form span {
 .textoItemQuienesSomos {
     line-height: 28px;
 }
-
-header {
-}
-
-#fotoQuienesSomos1 img {
-}
-
-.menuHeader .pull-left svg {}
 
 .menuHeader .pull-left svg {
     width: 150px;

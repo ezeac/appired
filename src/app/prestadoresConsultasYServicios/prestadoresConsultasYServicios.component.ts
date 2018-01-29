@@ -34,8 +34,8 @@ export class PrestadoresConsultasYServiciosComponent{
 	public detalleTramite = false; public detalleTexto:Array<any> = [false]; public tituloDetalleTramite; 
 	public vistaResultado:string = "";
 
-	//variables para campos extras de "Encontrar Provedores"
-	public Provincia=false; public Localidad=false; public Rubro=false; 
+	//variables para campos extras de "Coseguro"
+	public Provincia=false;
 
 	constructor(
 		private peticionesService:PeticionesService,
@@ -43,6 +43,9 @@ export class PrestadoresConsultasYServiciosComponent{
 		private _router: Router
 	){}
 
+	navigate() {
+		this._router.navigateByUrl('prestadoresConsultas/normasOperativas', { skipLocationChange: true });
+	}
 	
 	//FUNCIONES GENERALES
 	ngOnInit(){
@@ -82,38 +85,32 @@ export class PrestadoresConsultasYServiciosComponent{
 		this.seleccionObraSocial = obraSocial;
 		//array de trámites para cada obra social (se recibe el name del selector de obras sociales)
 		if (obraSocial == 'ospaca') {
-			this.tramite = [["descargarCartillaPrestadores", "Descargar cartilla de prestadores"], ["credencialProvisoria", "Credencial Provisoria"], ["encontrarPrestadores", "Encontrar Prestadores"]];
+			this.tramite = [["normasOperativas", "Normas Operativas"], ["coseguros", "Coseguros"]];
 		} else {
 			this.tramite = [];
 		}
 	}
 	cargarDetalle(tramite){
+		this.vistaResultado = "";
 		this.seleccionTramite = tramite;
 		//condicional para mostrar campos extras en "encontrar prestradores"
-		if (tramite == 'encontrarPrestadores') {
+		if (tramite == 'coseguros') {
 			//activamos el div para campos extras
 			this.detalleTramite = true;
 			this.vistaResultado =  "completar";
-			this.tituloDetalleTramite = "INGRESE LOS DATOS DE BÚSQUEDA";
+			this.tituloDetalleTramite = "INGRESE LA PROVINCIA";
 			//reiniciamos la variable detalleTexto y seteamos en true el campo div a mostrar
 			this.detalleTexto = [false];
-			this.detalleTexto["encontrarPrestadores"] = true;
+			this.detalleTexto["coseguros"] = true;
 		} else {
 			this.detalleTramite = false;
-			this.actualizarVistaTramite();
+			this.mostrarResultado();
 		}
 	}
-	actualizarVistaTramite() {
+	mostrarResultado() {
+		console.log(this.seleccionTramite);
 		this.vistaResultado = this.seleccionObraSocial + this.seleccionTramite;
-		$("html, body").animate({"scrollTop":"0px"},"2000");
+		this._router.navigate([this.seleccionTramite],{relativeTo: this._route, skipLocationChange: false});
 	}
-
-	//FUNCIONES PARA "ENCONTRAR PRESTADORES"
-	actualizarSeleccionEncontrarPrestadores(){
-		if (this.Provincia && this.Localidad && this.Rubro) {
-			this.actualizarVistaTramite();
-		}
-	}
-
 
 }

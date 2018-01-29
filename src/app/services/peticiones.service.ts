@@ -67,4 +67,31 @@ export class PeticionesService{
 		return respuesta;
 	}
 
+
+	getLoginPrestadores(usuario, password){
+		
+		// this.url = "http://www.appired.com.ar/consultarPadron.php?peticion=301&nrodoc=" + usuario + "&fechaNac='01/01/0001'&rnos=101604";
+
+		// //CONSULTA AJAX
+		// var respuesta;
+		// $.ajax({
+		// 	url: this.url, 
+		// 	async: false,
+		// 	error: function(xhr){
+		// 		respuesta = "Ocurrió un error: " + xhr.status + " " + xhr.statusText;
+		//     },
+		//     success: function(result){
+		//         respuesta = result;
+		//     },
+		//     dataType: "xml"
+		// });
+
+		// return respuesta;
+
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString("<cont2><loginResult>ok</loginResult></cont2>","text/xml");
+
+		return xmlDoc;
+	}
+
 }
